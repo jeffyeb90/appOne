@@ -1,4 +1,3 @@
-@@ -1,193 +1,201 @@
 <!DOCTYPE html>
 <html>
 	<head>
@@ -75,10 +74,9 @@
 				<button> Results </button>
 				 </a>
 				 <br/>
-
-			 <button id="capturePhoto"> Camera </button>
-			 	<button id="barcodeScanner">Barcode Scanner </button>
-
+				 <a href="#camera" id="capturePhoto" data-transition="slideup">
+			 <button> Camera </button>
+				</a>
 				<div><center><img class="lazy" style="display:none;width:100%;height:100%;" id="smallImage"
 					src=""/></center></div>
 					<video width="400" controls>
@@ -86,9 +84,8 @@
 						</video>
 						<audio controls>
 							<source src="audio.mp3" type="audio/mpeg">
-							</audio>
-
- 			</div><!-- /content -->
+						</audio>
+			</div><!-- /content -->
 		</div><!-- /page -->
 
 		<div data-role="page" id="declareRegions">
