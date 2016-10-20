@@ -8,7 +8,6 @@
 		destinationType = navigator.camera.DestinationType;
 
 		document.getElementById("capturePhoto").onclick = function() {
-			//alert("here");
 			navigator.camera.getPicture(onPhotoDataSuccess, onFail, {
 				quality : 50,
 
@@ -16,9 +15,22 @@
 			});
 		}
 
+		document.getElementById("geolocationdata").addEventListener("click", function() {
+			navigator.geolocation.getCurrentPosition(onSuccess, onError, {
+				enableHighAccuracy : true
+			});
+		});
 
+		//watchPosition
+		var watchId = navigator.geolocation.watchPosition(onWatchSuccess, onWatchError, {
+			timeout : 30000
+		});
 
+		document.getElementById("clearWatchbtn").addEventListener("click", function() {
+			navigator.geolocation.clearWatch(watchID);
+		});
 
+	};
 
 	function onPhotoDataSuccess(imageData) {
 
@@ -36,115 +48,26 @@
 
 	}
 
-	})();
-
-
-(function() {
-
-//barcode scanner
-
-	document.addEventListener('deviceready', onDeviceReady.bind(this), false);
-	function onDeviceReady() {
-
-
-		document.getElementById("barcodeScanner").onclick = function(){
-			//alert("here");
-			cordova.plugins.barcodeScanner.scan(
-		 function (result) {
-				 alert("We got a barcode\n" +
-							 "Result: " + result.text + "\n" +
-							 "Format: " + result.format + "\n" +
-							 "Cancelled: " + result.cancelled);
-		 },
-		 function (error) {
-				 alert("Scanning failed: " + error);
-		 },
-		 {
-				 "preferFrontCamera" : true, // iOS and Android
-				 "showFlipCameraButton" : true, // iOS and Android
-				 "prompt" : "Place a barcode inside the scan area", // supported on Android only
-				 "formats" : "QR_CODE,PDF_417", // default: all but PDF_417 and RSS_EXPANDED
-				 "orientation" : "landscape" // Android only (portrait|landscape), default unset so it rotates with the device
-		 }
-	);
-
-
-
-	}
+	///////////geolocation bit/////////////////
+	var onSuccess = function(position) {
+		alert('Latitude: ' + position.coords.latitude + '\n' + 'Longitude: ' + position.coords.longitude + '\n');
 	};
 
-	})();
-
-
-
-
-
-(function() {
-
-
-	document.getElementById("geolocationdata").onclick = function(){
-		alert("here!");
-		 navigator.geolocation.getCurrentPosition(onSuccess, onError, { timeout: 6000});
+	// onError Callback receives a PositionError object
+	//
+	function onError(error) {
+		alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
 	}
 
+	//watchPosition
 
-	var onSuccess = function(position) {
-		 alert('Latitude: '          + position.coords.latitude          + '\n' +
-					 'Longitude: '         + position.coords.longitude         + '\n' +
-					 'Altitude: '          + position.coords.altitude          + '\n' +
-					 'Accuracy: '          + position.coords.accuracy          + '\n' +
-					 'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-					 'Heading: '           + position.coords.heading           + '\n' +
-					 'Speed: '             + position.coords.speed             + '\n' +
-					 'Timestamp: '         + position.timestamp                + '\n');
+	var onWatchSuccess = function(position) {
+		var element = document.getElementById('divWatchMeMove');
+		element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' + 'Longitude: ' + position.coords.longitude + '<br />' + '<hr />' + element.innerHTML;
+	};
 
- };
-
- // onError Callback receives a PositionError object
- //
- function onError(error) {
-		 alert('code: '    + error.code    + '\n' +
-					 'message: ' + error.message + '\n');
- }
-google.maps.event.addDomListener(window, 'load', onSuccess);
-
+	function onWatchError(error) {
+		alert('code: ' + error.code + '\n' + 'message: ' + error.message + '\n');
+	}
 
 })();
-
-
-
-
-
-
-(function() {
-
-
-
-
-		document.getElementById("geolocationdatawatch").onclick = function(){
-			alert("here!");
-			 navigator.geolocation.watchPosition(onSuccess, onError, { timeout: 60000});
-		}
-
-
-		var onSuccess = function(position) {
-			 alert('Latitude: '          + position.coords.latitude          + '\n' +
-						 'Longitude: '         + position.coords.longitude         + '\n');
-
-
-	 };
-
-	 // onError Callback receives a PositionError object
-	 //
-	 function onError(error) {
-			 alert('code: '    + error.code    + '\n' +
-						 'message: ' + error.message + '\n');
-	 }
-
-
-
-
-}
-)();
-
-};
