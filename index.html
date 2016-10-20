@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<title>COLLATE</title>
 
-		<meta name="format-detection" content="telephone=no">
-		<meta name="msapplication-tap-highlight" content="no">
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
 
-		<!-- Path to your custom app styles-->
 		<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
 		<link rel="stylesheet" href="css/jquery.mobile.theme.css" />
-         <script>
+
+		<script>
 			var userAgent = navigator.userAgent + '';
 			if (userAgent.indexOf('iPhone') > -1) {
 				document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
@@ -21,60 +21,131 @@
 				var mobile_system = '';
 			}
 		</script>
-
 		<script src="scripts/jquery.js"></script>
 		<!-- your scripts here -->
 
 		<script src="scripts/jquery.mobile.js"></script>
-		<title>app</title>
+
+		<style>
+			.ui-selectmenu.ui-popup .ui-input-search {
+				margin-left: .5em;
+				margin-right: .5em;
+			}
+			.ui-selectmenu.ui-dialog .ui-content {
+				padding-top: 0;
+			}
+			.ui-selectmenu.ui-dialog .ui-selectmenu-list {
+				margin-top: 0;
+			}
+			.ui-selectmenu.ui-popup .ui-selectmenu-list li.ui-first-child .ui-btn {
+				border-top-width: 1px;
+				-webkit-border-radius: 0;
+				border-radius: 0;
+			}
+			.ui-selectmenu.ui-dialog .ui-header {
+				border-bottom-width: 1px;
+			}
+			a {
+				text-decoration: none;
+			}
+		</style>
+
 	</head>
 	<body>
-	   <div data-role="page" id="landingPage" style="background: white">
 
+		<div data-role="page" id="landingPage" style="background: white">
 			<div data-role="header" style="text-shadow: none">
-				<h1>tutorial</h1>
+				<h1>EC</h1>
 				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
 			</div><!-- /header -->
-			<img src="img/download.png" />
+			<img src="technology_news.jpg" height="10%" width= "100%"/>
+
 			<div data-role="content" style="text-shadow: none">
 				<a href="#declareRegions" data-transition="flip">
-				<button>
-					Declare
-				</button> </a>
-				<br />
-				<a href="#results" data-transition="slide">
-				<button>
-					Results
-				</button> </a>
-				<br />
-				<button id="geolocationdata">geolocation</button>
-				<div id="divWatchMeMove">My Current Position</div>
-				<button id="clearWatchbtn">Reset</button>
-				<br />
-				<button id="capturePhoto">camera</button>	<br />
-                  <div><center><img class="lazy" style="display:none;width:100%;height:100%;" id="smallImage" src="" /></center></div>
-				  	<br />
-				  <video width="400" controls>
-                      <source src="video.mp4" type="video/mp4">
 
+		<button>Declare  </button>
+			</a>
+				<br/>
 
-                 </video>
-				 	<br />
+					<a href="#results" data-transition="slide">
+				<button> Results </button>
+				 </a>
+				 <br/>
+				 <button id="geolocationdata">geolocation</button>
+				 <button id="barcodeScanner">geolocation</button>
+				 <div id="divWatchMeMove">My Current Position</div>
+				 <button id="clearWatchbtn">Reset</button>
+				 <br />
+				 <button id="capturePhoto">camera</button>	<br />
+<!---
+					<video width="400" controls>
+		<source src="video.mp4" type="video/mp4">
+					 </video>
 				 <audio controls>
-
-                        <source src="audio.mp3" type="audio/mpeg">
-
-                  </audio>
+	<source src="audio.mp3" type="audio/mpeg">
+	</audio>--->
 
 			</div><!-- /content -->
-		</div><!-- /page -->
+</div>
 
-	<!----------------------------->
+		<div data-role="page" id="declareRegions">
+			<div data-role="header" style="text-shadow: none">
+				<h1>EC</h1>
+				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div><!-- /header -->
 
+			<div data-role="content" style="text-shadow: none">
+			   <select id="filter-menu" data-native-menu="false">
+					 <option value="SFO"> Greater Accra</option>
+				   <option value="LAX"> Central</option>
+					 <option value="YVR"> Ashanti</option>
+					<option value="YYZ"> Eastern</option>
+					 <option value="YYZ"> Western</option>
+					<option value="YYZ"> Northern</option>
+          <option value="YYZ"> Upper West</option>
+					<option value="YYZ"> Upper West</option>
+</select>
+
+<select id="filter-menu" data-native-menu="false">
+	<option value="SFO"> Constituency A</option>
+	<option value="LAX"> Constituency B</option>
+	<option value="YVR"> Constituency C</option>
+ <option value="YYZ"> Constituency D</option>
+	<option value="YYZ"> Constituency E</option>
+ <option value="YYZ"> Costituency F</option>
+ <option value="YYZ"> Costituency G</option>
+ <option value="YYZ"> Costituency H</option>
+</select>
+
+<label> NJM </label>
+<input type ="text" value ="" >
+<label> AJM </label>
+<input type ="text" value ="" >
+<label> SGM </label>
+<input type ="text" value ="" >
+				</div>
+			</div><!-- /content -->
+
+		<div data-role="page" id="results">
+			<div data-role="header" style="text-shadow: none">
+				<h1>EC</h1>
+				<a href="index.html" data-role="button" data-icon="refresh" data-iconpos="notext" style="background: white;border: none;">Refresh</a>
+			</div><!-- /header -->
+
+	<div data-role="content" style="text-shadow: none">
+<h3>AFP: </h3> 20
+<br/>
+<h3>CFG: </h3> 40
+<br/>
+<h3>HPO: </h3> 70
+<br/>
+				</div>
+			</div><!-- /content -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 			<script type="text/javascript" src="cordova.js"></script>
 			<script type="text/javascript" src="scripts/platformOverrides.js"></script>
 			<script type="text/javascript" src="scripts/index.js"></script>
 
 	</body>
+
 </html>
