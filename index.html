@@ -22,7 +22,25 @@
 			}
 		</script>
 
+		<script>
 
+		document.getElementById("map").addEventListener("click", map);
+		function map() {
+			 var myCentre = new google.maps.LatLng(5.75958,-0.22019);
+			 var map = new google.maps.Map(document.getElementById("map"), {
+					 zoom: 12,
+					 center: myCentre,
+					 mapTypeId: google.maps.MapTypeId.ROADMAP,
+			 });
+
+			 var marker = new google.maps.Marker({
+					 position: myCentre,
+					 map: map,
+			 });
+			 marker.setMap(map);
+	 }
+
+		</script>
 		<style>
 			.ui-selectmenu.ui-popup .ui-input-search {
 				margin-left: .5em;
@@ -59,9 +77,9 @@
 
 			<div data-role="content" style="text-shadow: none">
 
-				 <button id="geolocationdata">geolocation</button>
-				 <div id="map" style="width:100%;height:300px;">View Map</div>
+				 <button id="geolocationdatawatch">geolocation</button>
 				 <button id="barcodeScanner">barCode Scanner</button>
+				 <button id="map" style="width:100%;height:300px;">View Map</button>
 				 <div id="divWatchMeMove">My Current Position</div>
 
 <!---
@@ -129,25 +147,7 @@
 				</div>
 			</div><!-- /content -->
 
-			<script>
 
-			document.getElementById("map").addEventListener("click", map);
-			function map() {
-				 var myCentre = new google.maps.LatLng(5.75958,-0.22019);
-				 var map = new google.maps.Map(document.getElementById("map"), {
-						 zoom: 12,
-						 center: myCentre,
-						 mapTypeId: google.maps.MapTypeId.ROADMAP,
-				 });
-
-				 var marker = new google.maps.Marker({
-						 position: myCentre,
-						 map: map,
-				 });
-				 marker.setMap(map);
-		 }
-
-			</script>
 
 			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqzFNqMOFKzyeJguXJFIotMQxUKJhk9As">
 							</script>
