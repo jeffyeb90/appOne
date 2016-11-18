@@ -1,4 +1,5 @@
-﻿(function() {
+
+(function() {
 
 	document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 	var pictureSource;
@@ -145,3 +146,5 @@ google.maps.event.addDomListener(window, 'load', onSuccess);
 
 
 })();
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
