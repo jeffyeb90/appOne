@@ -22,25 +22,7 @@
 			}
 		</script>
 
-		<script>
 
-		document.getElementById("map").addEventListener("click", map);
-		function map() {
-			 var myCentre = new google.maps.LatLng(5.75958,-0.22019);
-			 var map = new google.maps.Map(document.getElementById("map"), {
-					 zoom: 12,
-					 center: myCentre,
-					 mapTypeId: google.maps.MapTypeId.ROADMAP,
-			 });
-
-			 var marker = new google.maps.Marker({
-					 position: myCentre,
-					 map: map,
-			 });
-			 marker.setMap(map);
-	 }
-
-		</script>
 		<style>
 			.ui-selectmenu.ui-popup .ui-input-search {
 				margin-left: .5em;
@@ -76,10 +58,17 @@
 			<img src="technology_news.jpg" height="10%" width= "100%"/>
 
 			<div data-role="content" style="text-shadow: none">
+				<a href="#declareRegions" data-transition="flip">
 
-				 <button id="geolocationdatawatch">geolocation</button>
+		<button>Declare  </button>
+			</a>
+
+					<a href="#results" data-transition="slide">
+				<button> Results </button>
+				 </a>
+
+				 <button id="geolocationdata">geolocation</button>
 				 <button id="barcodeScanner">barCode Scanner</button>
-				 <button id="map" style="width:100%;height:300px;">View Map</button>
 				 <div id="divWatchMeMove">My Current Position</div>
 
 <!---
@@ -146,11 +135,6 @@
 <br/>
 				</div>
 			</div><!-- /content -->
-
-
-
-			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqzFNqMOFKzyeJguXJFIotMQxUKJhk9As">
-							</script>
 			<script src="scripts/jquery.js"></script>
 			<script src="scripts/jquery.mobile.js"></script>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
